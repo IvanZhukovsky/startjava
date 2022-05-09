@@ -34,6 +34,8 @@ public class VariablesTheme {
 
         System.out.println("Общая стоимость с учетом скидки составит - " +  totaPriceWithDiscount);
 
+        System.out.println("\n3. Вывод на консоль слова JAVA");
+
 
 
 
