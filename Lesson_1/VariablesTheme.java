@@ -18,7 +18,22 @@ public class VariablesTheme {
         System.out.println(freeSpaceHDD);
         System.out.println(processorType);
         System.out.println(isOn);
-        System.out.println();
+        
+        System.out.println("\n2. Расчет стоимости товара со скидкой");
+        
+        int produktX_Price = 100;
+        int produktY_Price = 200;
+        int discount = 11;
+
+        int totalPrice = produktX_Price + produktY_Price;
+        double totalDiscount = totalPrice / 100 * discount;
+
+        double totaPriceWithDiscount = totalPrice - totalDiscount;
+
+        System.out.println("Размер скидки составит - " + totalDiscount);
+
+        System.out.println("Общая стоимость с учетом скидки составит - " +  totaPriceWithDiscount);
+
 
 
 
