@@ -73,6 +73,64 @@ public class VariablesTheme {
             System.out.println(longType);
             longType--;
             System.out.println(longType);
+
+        System.out.println("\n5. Перестановка значений переменных");
+
+            float firstFloat = 76.9f;
+            float secondFloat = 89.4f;
+            float thirdFloat = 0;
+
+            System.out.println("Меняем переменные местами при помощи третьей перемнной");
+                System.out.println("\nИсходное значение первой переменной " + firstFloat);
+                System.out.println("Исходное значение второй переменной " + secondFloat);
+
+                thirdFloat = firstFloat;
+                firstFloat = secondFloat;
+                secondFloat = thirdFloat;
+
+                System.out.println("\nНовое значение первой переменной " + firstFloat);
+                System.out.println("Новое значение второй переменной " + secondFloat);
+
+            System.out.println("\nМеняем переменные местами при помощи арифметических операций");
+                System.out.println("\nИсходное значение первой переменной " + firstFloat);
+                System.out.println("Исходное значение второй переменной " + secondFloat);
+                
+                firstFloat = firstFloat + secondFloat;
+                secondFloat = firstFloat - secondFloat;
+                firstFloat = firstFloat - secondFloat;
+
+                System.out.println("\nНовое значение первой переменной " + firstFloat);
+                System.out.println("Новое значение второй переменной " + secondFloat);
+
+            System.out.println("\nМеняем переменные местами при помощи побитовых операций");
+
+                int digit = 10;
+
+                System.out.println("\nИсходное значение первой переменной " + firstFloat);
+                System.out.println("Исходное значение второй переменной " + secondFloat);
+
+                firstFloat = firstFloat*digit;
+                int firstInt = (int) firstFloat;
+                    
+                secondFloat = secondFloat*digit;
+                int secondInt = (int) secondFloat;
+
+                firstInt = firstInt^secondInt;
+
+                secondInt = firstInt^secondInt;
+
+                firstInt = firstInt^secondInt;
+
+                firstFloat = (float) firstInt/digit;
+
+                secondFloat = (float) secondInt/digit;
+
+                System.out.println("\nНовое значение первой переменной " + firstFloat);
+                System.out.println("Новое значение второй переменной " + secondFloat);
+
+
+
+
             
 
         
