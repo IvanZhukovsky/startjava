@@ -131,9 +131,42 @@ public class VariablesTheme {
         System.out.println("\n6. Вывод символов и их кодов");
 
             int firstSymbolCode = 35;
-            char firstSymbol = (char) firstSymbolCode;
+            int secondSymbolCode = 38;
+            int thirdSymbolCode = 64;
+            int fouthSymbolCode = 94;
+            int fithSymbolCode = 95;
 
-            System.out.println(firstSymbol);
+            char firstSymbol = (char) firstSymbolCode;
+            char secondSymbol = (char) secondSymbolCode;
+            char thirdSymbol = (char) thirdSymbolCode;
+            char fouthSymbol = (char) fouthSymbolCode;
+            char fithSymbol = (char) fithSymbolCode;
+
+           
+
+            System.out.println(firstSymbolCode + " " + firstSymbol);
+            System.out.println(secondSymbolCode + " " + secondSymbol);
+            System.out.println(thirdSymbolCode + " " + thirdSymbol);
+            System.out.println(fouthSymbolCode + " " + fouthSymbol);
+            System.out.println(fithSymbolCode + " " + fithSymbol);
+
+        System.out.println("\n7. Произведение и сумма цифр числа");
+
+            int number = 345;
+
+            int hundreds = number/100;
+
+            number = number%100;
+
+            int decades = number/10;
+
+            int units = number%10;
+
+            int summa = hundreds + decades + units;
+            int composition = hundreds * decades * units;
+
+            System.out.println("сумма цифр числа N = " + summa);
+            System.out.println("произведение цифр числа N = " + composition);
 
 
 
