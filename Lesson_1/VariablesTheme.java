@@ -37,6 +37,7 @@ public class VariablesTheme {
         System.out.println("\n3. Вывод на консоль слова JAVA");
 
         System.out.println("");
+        System.out.println("");
 
 
 
