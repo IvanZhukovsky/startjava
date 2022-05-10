@@ -128,6 +128,13 @@ public class VariablesTheme {
                 System.out.println("\nНовое значение первой переменной " + firstFloat);
                 System.out.println("Новое значение второй переменной " + secondFloat);
 
+        System.out.println("\n6. Вывод символов и их кодов");
+
+            int firstSymbolCode = 35;
+            char firstSymbol = (char) firstSymbolCode;
+
+            System.out.println(firstSymbol);
+
 
 
 
