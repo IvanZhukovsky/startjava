@@ -168,16 +168,50 @@ public class VariablesTheme {
             System.out.println("сумма цифр числа N = " + summa);
             System.out.println("произведение цифр числа N = " + composition);
 
+        System.out.println("\n8. Вывод на консоль ASCII-арт Дюка");
 
+            char slash = '/';
+            char backSlash = '\\';
+            char bracket = '(';
+            char backBracket = ')';
+            char underscores = '_';
+            char space = ' ';
 
+            System.out.println(space + "" + space + "" + space + "" + space + "" + slash + "" + backSlash + "" + space + "" + space + "" + space + "" + space);
+            System.out.println(space + "" + space + "" + space + "" + slash + "" + space + "" + space + "" + backSlash + "" + space + "" + space + "" + space);
+            System.out.println(space + "" + space + "" + slash + "" + underscores + "" + bracket + "" + space + "" + backBracket + "" + backSlash + "" + space + "" + space);
+            System.out.println(space + "" + slash + "" + space + "" + space + "" + space + "" + space + "" + space + "" + space + "" + backSlash + "" + space);
+            System.out.println(slash + "" + underscores + "" + underscores + "" + underscores + "" + underscores + "" + slash + "" + backSlash + "" + underscores + "" + underscores + "" + backSlash);
 
+        System.out.println("\n9. Отображение количества сотен, десятков и единиц числа");
+
+            number = 123;
+
+            hundreds = number/100;
+
+            number = number%100;
+
+            decades = number/10;
+
+            units = number%10;
+
+            System.out.println("Число N содержит: " + hundreds + " сотен");
+            System.out.println("Число N содержит: " + decades + " десятков");
+            System.out.println("Число N содержит: " + units + " единиц");
+
+        System.out.println("\n10. Преобразование секунд");
+
+            int time = 86399;
+
+            int hours = time/3600;
+
+            time = time%3600;
+
+            int minutes = time/60;
+
+            int seconds = time%60;
+
+            System.out.println(hours + ":" + minutes + ":" + seconds); 82800 3540 
             
-
-        
-
-
-
-
-
     }
 }
