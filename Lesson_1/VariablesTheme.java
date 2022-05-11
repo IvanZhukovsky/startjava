@@ -1,7 +1,6 @@
 public class VariablesTheme {
     public static void main(String[] args) {
         System.out.println("1. Создание переменных и вывод их значений на консоль");
-
         byte memorySize = 8;
         short processorFrequency = 2100;
         int quantityOfCore = 16;
@@ -21,7 +20,6 @@ public class VariablesTheme {
         System.out.println(isOn);
         
         System.out.println("\n2. Расчет стоимости товара со скидкой");
-        
         int priceGoodsX = 100;
         int priceGoodsY = 200;
         int discount = 11;
@@ -32,19 +30,16 @@ public class VariablesTheme {
         System.out.println("Общая стоимость с учетом скидки составит - " +  discountPrice);
         
         System.out.println("\n3. Вывод на консоль слова JAVA");
-        
         System.out.println("   J    a  v     v a ");
         System.out.println("   J   a a  v   v a a");
         System.out.println("J  J  aaaaa  V V aaaaa");
         System.out.println(" JJ  a     a  V a     a");
 
         System.out.println("\n4. Отображение min и max значений числовых типов данных");
-
         byte byteType = 127;
         short shortType = 32_767;
         int intType = 2_147_483_647;
         long longType = 9_223_372_036_854_775_807l;
-
         System.out.println(byteType);
         System.out.println(byteType++);
         System.out.println(byteType--);
@@ -59,7 +54,6 @@ public class VariablesTheme {
         System.out.println(longType--);
 
         System.out.println("\n5. Перестановка значений переменных");
-
         float number1 = 76.9f;
         float number2 = 89.4f;
         float buffer = 0;
@@ -99,7 +93,6 @@ public class VariablesTheme {
         System.out.println("Новое значение второй переменной " + number2);
 
         System.out.println("\n6. Вывод символов и их кодов");
-
         char code1 = 35;
         char code2 = 38;
         char code3 = 64;
@@ -113,7 +106,6 @@ public class VariablesTheme {
         System.out.println((int) code5 + " " + code5);
 
         System.out.println("\n7. Произведение и сумма цифр числа");
-
         int scrNumber = 345;
         int hundreds = scrNumber / 100;
         scrNumber = scrNumber % 100;
@@ -126,7 +118,6 @@ public class VariablesTheme {
         System.out.println("произведение цифр числа N = " + productDigits);
 
         System.out.println("\n8. Вывод на консоль ASCII-арт Дюка");
-
         char slash = '/';
         char backSlash = '\\';
         char openBracket = '(';
@@ -141,34 +132,23 @@ public class VariablesTheme {
         System.out.println("" + slash + underscores + underscores + underscores + underscores + slash + backSlash + underscores + underscores + backSlash);
 
         System.out.println("\n9. Отображение количества сотен, десятков и единиц числа");
+        scrNumber = 123;
+        hundreds = scrNumber / 100;
+        scrNumber = scrNumber % 100;
+        decades = scrNumber / 10;
+        units = scrNumber % 10;
 
-            scrNumber = 123;
-
-            hundreds = scrNumber/100;
-
-            scrNumber = scrNumber%100;
-
-            decades = scrNumber/10;
-
-            units = scrNumber%10;
-
-            System.out.println("Число N содержит: " + hundreds + " сотен");
-            System.out.println("Число N содержит: " + decades + " десятков");
-            System.out.println("Число N содержит: " + units + " единиц");
+        System.out.println("Число N содержит: " + hundreds + " сотен");
+        System.out.println("Число N содержит: " + decades + " десятков");
+        System.out.println("Число N содержит: " + units + " единиц");
 
         System.out.println("\n10. Преобразование секунд");
+        int time = 86399;
+        int hours = time / 3600;
+        time = time % 3600;
+        int minutes = time / 60;
+        int seconds = time % 60;
 
-            int time = 86399;
-
-            int hours = time/3600;
-
-            time = time%3600;
-
-            int minutes = time/60;
-
-            int seconds = time%60;
-
-            System.out.println(hours + ":" + minutes + ":" + seconds); 
-            
+        System.out.println(hours + ":" + minutes + ":" + seconds); 
     }
 }
