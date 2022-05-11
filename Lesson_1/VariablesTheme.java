@@ -1,199 +1,156 @@
 public class VariablesTheme {
     public static void main(String[] args) {
-
         System.out.println("1. Создание переменных и вывод их значений на консоль");
 
-            byte memorySize = 8;
-            short processorFrequency = 2100;
-            int quantityOfCore = 16;
-            long occupiedSpaceHDD = 102679347200l;
-            float totalSpaceHDD = 245.11f;
-            double freeSpaceHDD = 146.69;
-            char processorType = 'M';
-            boolean isOn = true;
+        byte memorySize = 8;
+        short processorFrequency = 2100;
+        int quantityOfCore = 16;
+        long occupiedSpaceHDD = 102679347200l;
+        float totalSpaceHDD = 245.11f;
+        double freeSpaceHDD = 146.69;
+        char processorType = 'M';
+        boolean isOn = true;
 
-            System.out.println(memorySize);
-            System.out.println(processorFrequency);
-            System.out.println(quantityOfCore);
-            System.out.println(occupiedSpaceHDD);
-            System.out.println(totalSpaceHDD);
-            System.out.println(freeSpaceHDD);
-            System.out.println(processorType);
-            System.out.println(isOn);
+        System.out.println(memorySize);
+        System.out.println(processorFrequency);
+        System.out.println(quantityOfCore);
+        System.out.println(occupiedSpaceHDD);
+        System.out.println(totalSpaceHDD);
+        System.out.println(freeSpaceHDD);
+        System.out.println(processorType);
+        System.out.println(isOn);
         
         System.out.println("\n2. Расчет стоимости товара со скидкой");
         
-            int produktX_Price = 100;
-            int produktY_Price = 200;
-            int discount = 11;
-
-            int totalPrice = produktX_Price + produktY_Price;
-            double totalDiscount = totalPrice / 100 * discount;
-
-            double totaPriceWithDiscount = totalPrice - totalDiscount;
-
-            System.out.println("Размер скидки составит - " + totalDiscount);
-
-            System.out.println("Общая стоимость с учетом скидки составит - " +  totaPriceWithDiscount);
-
+        int priceGoodsX = 100;
+        int priceGoodsY = 200;
+        int discount = 11;
+        int totalPrice = priceGoodsX + priceGoodsY;
+        double totalDiscount = totalPrice / 100 * discount;
+        double discountPrice = totalPrice - totalDiscount;
+        System.out.println("Размер скидки составит - " + totalDiscount);
+        System.out.println("Общая стоимость с учетом скидки составит - " +  discountPrice);
+        
         System.out.println("\n3. Вывод на консоль слова JAVA");
         
-            System.out.println("   J    a  v     v a ");
-            System.out.println("   J   a a  v   v a a");
-            System.out.println("J  J  aaaaa  V V aaaaa");
-            System.out.println(" JJ  a     a  V a     a");
+        System.out.println("   J    a  v     v a ");
+        System.out.println("   J   a a  v   v a a");
+        System.out.println("J  J  aaaaa  V V aaaaa");
+        System.out.println(" JJ  a     a  V a     a");
 
         System.out.println("\n4. Отображение min и max значений числовых типов данных");
 
-            byte byteType = 127;
-            short shortType = 32_767;
-            int intType = 2_147_483_647;
-            long longType = 9_223_372_036_854_775_807l;
+        byte byteType = 127;
+        short shortType = 32_767;
+        int intType = 2_147_483_647;
+        long longType = 9_223_372_036_854_775_807l;
 
-            System.out.println(byteType);
-            byteType++;
-            System.out.println(byteType);
-            byteType--;
-            System.out.println(byteType);
-
-            System.out.println(shortType);
-            shortType++;
-            System.out.println(shortType);
-            shortType--;
-            System.out.println(shortType);
-
-            System.out.println(intType);
-            intType++;
-            System.out.println(intType);
-            intType--;
-            System.out.println(intType);
-            
-            System.out.println(longType);
-            longType++;
-            System.out.println(longType);
-            longType--;
-            System.out.println(longType);
+        System.out.println(byteType);
+        System.out.println(byteType++);
+        System.out.println(byteType--);
+        System.out.println(shortType);
+        System.out.println(shortType++);
+        System.out.println(shortType--);
+        System.out.println(intType);
+        System.out.println(intType++);
+        System.out.println(intType--);
+        System.out.println(longType);
+        System.out.println(longType++);
+        System.out.println(longType--);
 
         System.out.println("\n5. Перестановка значений переменных");
 
-            float firstFloat = 76.9f;
-            float secondFloat = 89.4f;
-            float thirdFloat = 0;
+        float number1 = 76.9f;
+        float number2 = 89.4f;
+        float buffer = 0;
 
-            System.out.println("Меняем переменные местами при помощи третьей перемнной");
-                System.out.println("\nИсходное значение первой переменной " + firstFloat);
-                System.out.println("Исходное значение второй переменной " + secondFloat);
+        System.out.println("Меняем переменные местами при помощи третьей переменной");
+        System.out.println("\nИсходное значение первой переменной " + number1);
+        System.out.println("Исходное значение второй переменной " + number2);
+        buffer = number1;
+        number1 = number2;
+        number2 = buffer;
+        System.out.println("\nНовое значение первой переменной " + number1);
+        System.out.println("Новое значение второй переменной " + number2);
 
-                thirdFloat = firstFloat;
-                firstFloat = secondFloat;
-                secondFloat = thirdFloat;
+        System.out.println("\nМеняем переменные местами при помощи арифметических операций");
+        System.out.println("\nИсходное значение первой переменной " + number1);
+        System.out.println("Исходное значение второй переменной " + number2);
+        number1 = number1 + number2;
+        number2 = number1 - number2;
+        number1 = number1 - number2;
+        System.out.println("\nНовое значение первой переменной " + number1);
+        System.out.println("Новое значение второй переменной " + number2);
 
-                System.out.println("\nНовое значение первой переменной " + firstFloat);
-                System.out.println("Новое значение второй переменной " + secondFloat);
-
-            System.out.println("\nМеняем переменные местами при помощи арифметических операций");
-                System.out.println("\nИсходное значение первой переменной " + firstFloat);
-                System.out.println("Исходное значение второй переменной " + secondFloat);
-                
-                firstFloat = firstFloat + secondFloat;
-                secondFloat = firstFloat - secondFloat;
-                firstFloat = firstFloat - secondFloat;
-
-                System.out.println("\nНовое значение первой переменной " + firstFloat);
-                System.out.println("Новое значение второй переменной " + secondFloat);
-
-            System.out.println("\nМеняем переменные местами при помощи побитовых операций");
-
-                int digit = 10;
-
-                System.out.println("\nИсходное значение первой переменной " + firstFloat);
-                System.out.println("Исходное значение второй переменной " + secondFloat);
-
-                firstFloat = firstFloat*digit;
-                int firstInt = (int) firstFloat;
-                    
-                secondFloat = secondFloat*digit;
-                int secondInt = (int) secondFloat;
-
-                firstInt = firstInt^secondInt;
-
-                secondInt = firstInt^secondInt;
-
-                firstInt = firstInt^secondInt;
-
-                firstFloat = (float) firstInt/digit;
-
-                secondFloat = (float) secondInt/digit;
-
-                System.out.println("\nНовое значение первой переменной " + firstFloat);
-                System.out.println("Новое значение второй переменной " + secondFloat);
+        System.out.println("\nМеняем переменные местами при помощи побитовых операций");
+        int multiplier = 10;
+        System.out.println("\nИсходное значение первой переменной " + number1);
+        System.out.println("Исходное значение второй переменной " + number2);
+        number1 = number1 * multiplier;
+        int buffer1 = (int) number1;
+        number2 = number2 * multiplier;
+        int buffer2 = (int) number2;
+        buffer1 = buffer1 ^ buffer2;
+        buffer2 = buffer1 ^ buffer2;
+        buffer1 = buffer1 ^ buffer2;
+        number1 = (float) buffer1 / multiplier;
+        number2 = (float) buffer2 / multiplier;
+        System.out.println("\nНовое значение первой переменной " + number1);
+        System.out.println("Новое значение второй переменной " + number2);
 
         System.out.println("\n6. Вывод символов и их кодов");
 
-            int firstSymbolCode = 35;
-            int secondSymbolCode = 38;
-            int thirdSymbolCode = 64;
-            int fouthSymbolCode = 94;
-            int fithSymbolCode = 95;
+        char code1 = 35;
+        char code2 = 38;
+        char code3 = 64;
+        char code4 = 94;
+        char code5 = 95;
 
-            char firstSymbol = (char) firstSymbolCode;
-            char secondSymbol = (char) secondSymbolCode;
-            char thirdSymbol = (char) thirdSymbolCode;
-            char fouthSymbol = (char) fouthSymbolCode;
-            char fithSymbol = (char) fithSymbolCode;
-
-           
-
-            System.out.println(firstSymbolCode + " " + firstSymbol);
-            System.out.println(secondSymbolCode + " " + secondSymbol);
-            System.out.println(thirdSymbolCode + " " + thirdSymbol);
-            System.out.println(fouthSymbolCode + " " + fouthSymbol);
-            System.out.println(fithSymbolCode + " " + fithSymbol);
+        System.out.println((int) code1 + " " + code1);
+        System.out.println((int) code2 + " " + code2);
+        System.out.println((int) code3 + " " + code3);
+        System.out.println((int) code4 + " " + code4);
+        System.out.println((int) code5 + " " + code5);
 
         System.out.println("\n7. Произведение и сумма цифр числа");
 
-            int number = 345;
+        int scrNumber = 345;
+        int hundreds = scrNumber / 100;
+        scrNumber = scrNumber % 100;
+        int decades = scrNumber / 10;
+        int units = scrNumber % 10;
+        int sumDigits = hundreds + decades + units;
+        int productDigits = hundreds * decades * units;
 
-            int hundreds = number/100;
-
-            number = number%100;
-
-            int decades = number/10;
-
-            int units = number%10;
-
-            int summa = hundreds + decades + units;
-            int composition = hundreds * decades * units;
-
-            System.out.println("сумма цифр числа N = " + summa);
-            System.out.println("произведение цифр числа N = " + composition);
+        System.out.println("сумма цифр числа N = " + sumDigits);
+        System.out.println("произведение цифр числа N = " + productDigits);
 
         System.out.println("\n8. Вывод на консоль ASCII-арт Дюка");
 
-            char slash = '/';
-            char backSlash = '\\';
-            char bracket = '(';
-            char backBracket = ')';
-            char underscores = '_';
-            char space = ' ';
+        char slash = '/';
+        char backSlash = '\\';
+        char openBracket = '(';
+        char closeBracket = ')';
+        char underscores = '_';
+        char space = ' ';
 
-            System.out.println(space + "" + space + "" + space + "" + space + "" + slash + "" + backSlash + "" + space + "" + space + "" + space + "" + space);
-            System.out.println(space + "" + space + "" + space + "" + slash + "" + space + "" + space + "" + backSlash + "" + space + "" + space + "" + space);
-            System.out.println(space + "" + space + "" + slash + "" + underscores + "" + bracket + "" + space + "" + backBracket + "" + backSlash + "" + space + "" + space);
-            System.out.println(space + "" + slash + "" + space + "" + space + "" + space + "" + space + "" + space + "" + space + "" + backSlash + "" + space);
-            System.out.println(slash + "" + underscores + "" + underscores + "" + underscores + "" + underscores + "" + slash + "" + backSlash + "" + underscores + "" + underscores + "" + backSlash);
+        System.out.println("" + space + space + space + space + slash + backSlash + space + space + space + space);
+        System.out.println("" + space + space + space + slash + space + space + backSlash + space + space + space);
+        System.out.println("" + space + space + slash + underscores + openBracket + space + closeBracket + backSlash + space + space);
+        System.out.println("" + space + slash + space + space + space + space + space + space + backSlash + space);
+        System.out.println("" + slash + underscores + underscores + underscores + underscores + slash + backSlash + underscores + underscores + backSlash);
 
         System.out.println("\n9. Отображение количества сотен, десятков и единиц числа");
 
-            number = 123;
+            scrNumber = 123;
 
-            hundreds = number/100;
+            hundreds = scrNumber/100;
 
-            number = number%100;
+            scrNumber = scrNumber%100;
 
-            decades = number/10;
+            decades = scrNumber/10;
 
-            units = number%10;
+            units = scrNumber%10;
 
             System.out.println("Число N содержит: " + hundreds + " сотен");
             System.out.println("Число N содержит: " + decades + " десятков");
