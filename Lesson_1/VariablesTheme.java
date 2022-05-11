@@ -211,7 +211,7 @@ public class VariablesTheme {
 
             int seconds = time%60;
 
-            System.out.println(hours + ":" + minutes + ":" + seconds); 82800 3540 
+            System.out.println(hours + ":" + minutes + ":" + seconds); 
             
     }
 }
