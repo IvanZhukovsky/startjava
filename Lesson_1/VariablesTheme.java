@@ -36,22 +36,22 @@ public class VariablesTheme {
         System.out.println(" JJ  a     a  V  a     a");
 
         System.out.println("\n4. Отображение min и max значений числовых типов данных");
-        byte byteType = 127;
-        short shortType = 32_767;
-        int intType = 2_147_483_647;
-        long longType = 9_223_372_036_854_775_807l;
-        System.out.println(byteType);
-        System.out.println(++byteType);
-        System.out.println(--byteType);
-        System.out.println(shortType);
-        System.out.println(++shortType);
-        System.out.println(--shortType);
-        System.out.println(intType);
-        System.out.println(++intType);
-        System.out.println(--intType);
-        System.out.println(longType);
-        System.out.println(++longType);
-        System.out.println(--longType);
+        byte byteMaxMinNumber = 127;
+        short shortMaxMinNumber = 32_767;
+        int intMaxMinNumber = 2_147_483_647;
+        long longMaxMinNumber = 9_223_372_036_854_775_807l;
+        System.out.println(byteMaxMinNumber);
+        System.out.println(++byteMaxMinNumber);
+        System.out.println(--byteMaxMinNumber);
+        System.out.println(shortMaxMinNumber);
+        System.out.println(++shortMaxMinNumber);
+        System.out.println(--shortMaxMinNumber);
+        System.out.println(intMaxMinNumber);
+        System.out.println(++intMaxMinNumber);
+        System.out.println(--intMaxMinNumber);
+        System.out.println(longMaxMinNumber);
+        System.out.println(++longMaxMinNumber);
+        System.out.println(--longMaxMinNumber);
 
         System.out.println("\n5. Перестановка значений переменных");
         float number1 = 76.9f;
