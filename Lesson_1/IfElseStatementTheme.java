@@ -1,7 +1,7 @@
 public class IfElseStatementTheme {
 
     public static void main(String[] args) {
-        System.out.println("\n1. Перевод пседокода на язык Java");
+        System.out.println("\n1. Перевод псевдокода на язык Java");
         int age = 40;
         boolean sexMan = false;
         double height = 1.76;
@@ -55,71 +55,29 @@ public class IfElseStatementTheme {
         }
 
         System.out.println("\n4. Поиск одинаковых цифр в числах");
-        int numberN = 173;
-        int numberM = 123;
-        boolean similarX = false;
-        boolean similarY = false;
-        boolean similarZ = false;
-        int digitA = 0;
-        int digitB = 0;
-        int digitC = 0;
-
-        if (numberN / 100 == numberM / 100) {
-            similarX = true;
-            digitA = numberN / 100;
+        int scrNumber1 = 123;
+        int scrNumber2 = 123;
+        
+        System.out.print("в числах N и M одинаковые цифры A, B, C стоят в");
+        if (scrNumber1 / 100 == scrNumber2 / 100) {
+            System.out.print(" X,");
         }
-        numberN = numberN % 100;
-        numberM = numberM % 100;
-        if (numberN / 10 == numberM / 10) {
-            similarY = true;
-            digitB = numberN / 10;
+        scrNumber1 = scrNumber1 % 100;
+        scrNumber2 = scrNumber2 % 100;
+        if (scrNumber1 / 10 == scrNumber2 / 10) {
+            System.out.print(" Y,");
         }
-        if (numberN % 10 == numberM % 10) {
-            similarZ = true;
-            digitC = numberN % 10;
+        if (scrNumber1 % 10 == scrNumber2 % 10) {
+            System.out.print(" Z");
         }
-        if (!similarX && !similarY && !similarZ) {
-            System.out.println("В числах N и M одинаковых цифр стоящих в одном и том же разряде нет");
-        } else {
-            System.out.print("в числах N и M одинаковые цифры ");
-            if (similarX) {
-                System.out.print(digitA);
-            }
-            if (similarY) {
-                if (similarX) {
-                    System.out.print(", " + digitB);
-                } else System.out.print(digitB);
-            }
-            if (similarZ) {
-                if (similarX || similarY) {
-                    System.out.print(", " + digitC);
-                } else System.out.print(digitC);
-            }
-            System.out.print(" стоят в ");
-            if (similarX) {
-                System.out.print("X");
-            }
-            if (similarY) {
-                if (similarX) {
-                    System.out.print(", " + "Y");
-                } else System.out.print("Y");
-            }
-            if (similarZ) {
-                if (similarX || similarY) {
-                    System.out.print(", " + "Z");
-                } else System.out.print("Z");
-            }
-            System.out.println(" разрядах");
-        }
-
         System.out.println("\n5. Определение буквы, числа или символа по их коду");
-        char symbol = '\u0057';
-        System.out.println(symbol);
-        if ((int) symbol >= 65 && (int) symbol <= 90) {
+        char unknownChar = '\u0057';
+        System.out.println(unknownChar);
+        if (unknownChar >= 65 && unknownChar <= 90) {
             System.out.println("большая буква");
-        } else if ((int) symbol >= 97 && (int) symbol <= 122) {
+        } else if (unknownChar >= 97 && unknownChar <= 122) {
             System.out.println("маленькая буква");
-        } else if ((int) symbol >= 48 && (int) symbol <= 57) {
+        } else if (unknownChar >= 48 && unknownChar <= 57) {
             System.out.println("это число");
         } else System.out.println("не буква и не число");
 
@@ -136,49 +94,50 @@ public class IfElseStatementTheme {
             annualInterestRate = 10;
         }
         System.out.println("Сумма вклада составляет " + deposit + "у.е.");
-        System.out.println("Начисленный % соcтавляет " + annualInterestRate + "% годовых или " + deposit * annualInterestRate / 100 + "у.е.");
-        System.out.println("Итоговая сумма с % составляет " + (deposit + deposit * annualInterestRate / 100) + "у.е.");
+        System.out.println("Начисленный % составляет " + 
+            annualInterestRate + "% годовых или " + 
+            deposit * annualInterestRate / 100 + "у.е.");
+        System.out.println("Итоговая сумма с % составляет " + (deposit + deposit * 
+            annualInterestRate / 100) + "у.е.");
 
         System.out.println("\n7. Определение оценки по предметам");
         int historyResult = 59;
         int programmingResult = 91;
-        int historyPoints = 0;
-        int programmingPoints = 0;
+        int historyPoint = 0;
+        int programmingPoint = 0;
 
         if (historyResult <= 60) {
-            historyPoints = 2;
-        }
-        if (historyResult > 60) {
-            historyPoints = 3;
-        }
-        if (historyResult > 73) {
-            historyPoints = 4;
-        }
-        if (historyResult > 91) {
-            historyPoints = 5;
+            historyPoint = 2;
+        } else if (historyResult > 60) {
+            historyPoint = 3;
+        } else if (historyResult > 73) {
+            historyPoint = 4;
+        } else if (historyResult > 91) {
+            historyPoint = 5;
         }
         if (programmingResult <= 60) {
-            programmingPoints = 2;
+            programmingPoint = 2;
+        } else if (programmingResult > 60) {
+            programmingPoint = 3;
+        } else if (programmingResult > 73) {
+            programmingPoint = 4;
+        } else if (programmingResult > 91) {
+            programmingPoint = 5;
         }
-        if (programmingResult > 60) {
-            programmingPoints = 3;
-        }
-        if (programmingResult > 73) {
-            programmingPoints = 4;
-        }
-        if (programmingResult > 91) {
-            programmingPoints = 5;
-        }
-        System.out.println(historyPoints + " история");
-        System.out.println(programmingPoints + " программирование");
-        System.out.println("Средний балл оценок по предметам " + (historyPoints + programmingPoints) / 2);
+        System.out.println(historyPoint + " история");
+        System.out.println(programmingPoint + " программирование");
+        System.out.println("Средний балл оценок по предметам " + (historyPoint + programmingPoint) / 2);
         System.out.println("Средний % по предметам " + (historyResult + programmingResult) / 2);
 
         System.out.println("\n8. Расчет прибыли");
         int rentalPriceMonth = 5000;
         int revenueMonth = 9000;
         int costPriceMonth = 13000;
-        System.out.println("прибыль за год: " + (costPriceMonth - revenueMonth - rentalPriceMonth)*12 + " руб.");
+        if ((costPriceMonth - revenueMonth - rentalPriceMonth) < 0) {
+            System.out.println("прибыль за год: " + (costPriceMonth - revenueMonth 
+                - rentalPriceMonth) * 12 + " руб.");
+        } else System.out.println("прибыль за год: " + "+" + (costPriceMonth 
+            - revenueMonth - rentalPriceMonth) * 12 + " руб.");
         
         System.out.println("\n9. Определение существования треугольника");
         int edge1 = 3;
