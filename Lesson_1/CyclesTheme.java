@@ -1,21 +1,21 @@
 public class CyclesTheme {
     public static void main(String[] args) {
         System.out.println("\n1. Подсчет суммы четных и нечетных чисел");
-        int number = -10;
-        int summaOddNumbers = 0;
-        int summaEvenNumbers = 0;
+        int counter = -10;
+        int sumOdd = 0;
+        int sumEven = 0;
         
         do {
-            if (number % 2 != 0) {
-                summaOddNumbers = summaOddNumbers + number;
+            if (counter % 2 != 0) {
+                sumOdd += counter;
             }
-            if (number % 2 == 0) {
-                summaEvenNumbers = summaEvenNumbers + number;
+            if (counter % 2 == 0) {
+                sumEven += counter;
             }
-            ++number;
-        } while (number <= 21);
+            ++counter;
+        } while (counter <= 21);
         System.out.println("в промежутке [-10, 21] сумма четных чисел = " + 
-            summaEvenNumbers + ", а нечетных = " + summaOddNumbers);
+            sumEven + ", а нечетных = " + sumOdd);
 
         System.out.println("\n2. Вывод чисел в интервале между (max и min)");
         int number1 = 10;
@@ -36,82 +36,54 @@ public class CyclesTheme {
         if (number3 > maxNumber) {
             maxNumber = number3;
         }
-        for (int i = maxNumber; i >= minNumber; i--) {
+        for (int i = maxNumber - 1; i > minNumber; i--) {
             System.out.println(i);
         }
 
         System.out.println("\n3. Вывод реверсивного числа и суммы его цифр");
-        number = 1234;
-        int divider = 10;
-        int count = 0;
-        int summa = 0;
+        int srcNumber = 1234;
+        int sum = 0;
 
-        while (number >= divider) {
-            if (number % divider != 0) {
-                number = number - (divider / 10);
-                count++;
-            } else {
-                divider = divider * 10;
-                System.out.print(count);
-                summa = summa + count;
-                count = 0;
-            }
-            if (number / (divider / 10) < 10) {
-                count = number / (divider / 10);
-                System.out.print(count);
-                summa = summa + count;
-            } 
+        while (srcNumber >= 1) {
+            System.out.print(srcNumber % 10);
+            sum += srcNumber % 10;
+            srcNumber /= 10;
         }
-        System.out.println("\n" + summa);
+        System.out.println("\n" + sum);
 
         System.out.println("\n4. Вывод чисел на консоль в несколько строк");
-        count = 0;
+        int count = 0;
         int beginNum = 1;
         int endNum = 24;
         int step = 2;
         int quantityNumbers = endNum / step;
         int quntityNumbersAll = quantityNumbers + (5 - (quantityNumbers % 5));
-        number = beginNum;
+        srcNumber = beginNum;
         for (int i = 1; i <= quntityNumbersAll; i++) {
             if (i <= quantityNumbers) {
-                System.out.printf("%3s", number);
+                System.out.printf("%3s", srcNumber);
             } else System.out.printf("%3s", 0);
             count++;
             if (count == 5) {
                 count = 0;
                 System.out.println();
             }
-            number = number + step;
+            srcNumber += step;
         }
 
         System.out.println("\n5. Проверка количества единиц на четность");
-        number = 3141591;
-        int quantityOnes = 0;
-        divider = 10;
-        count = 0;
-
-        System.out.print("число " + number + " содержит ");
-        while (number >= divider) {
-            if (number % divider != 0) {
-                number = number - (divider / 10);
-                count++;
-            } else {
-                divider = divider * 10;
-                if (count == 1) {
-                    quantityOnes++;
-                }
-                count = 0;
+        srcNumber = 3141591;
+        counter = 0;
+        System.out.print("число " + srcNumber + " содержит ");
+        while (srcNumber >= 1) {
+            if (srcNumber % 10 == 1) {
+                counter++;
             }
-            if (number / (divider / 10) < 10) {
-                count = number / (divider / 10);
-                if (count == 1) {
-                    quantityOnes++;
-                }
-            } 
+            srcNumber /= 10;
         }
-        if (quantityOnes % 2 == 0) {
-            System.out.println(quantityOnes + " (четное) количество единиц");
-        } else System.out.println(quantityOnes + " (нечетное) количество единиц");
+        if (counter % 2 == 0) {
+            System.out.println(counter + " (четное) количество единиц");
+        } else System.out.println(counter + " (нечетное) количество единиц");
         
         System.out.println("\n6. Отображение фигур в консоли");
         for (int i = 0; i < 5; i++) {
@@ -151,80 +123,52 @@ public class CyclesTheme {
 
         System.out.println("\n7. Отображение ASCII-символов");
         System.out.printf("%5s %5s %n", "Dec", "Char");
-        for (int i = 0; i <= 127; i++) {
-            if (i < 48 && i % 2 != 0) {
+        for (int i = 1; i < 49; i += 2) {
                 System.out.printf("%5s %5c %n", i, i);
-            }
-            if (i > 60 && i < 123 && i % 2 == 0) {
+        }
+        for (int i = 98; i < 123; i += 2) {
                 System.out.printf("%5s %5c %n", i, i);
-            }
         }
 
         System.out.println("\n8. Проверка, является ли число палиндромом");
-        number = 1234321;
-        number1 = number;
-        number2 = number;
-        divider = 10;
+        srcNumber = 1234321;
+        number1 = srcNumber;
+        number2 = srcNumber;
         int multiplier = 10;
         count = 0;
         //определяем разрядность числа
-        while (number2 >= divider) {
-            number2 = number2 / divider;
+        while (number2 >= 10) {
+            number2 /= 10;
             count++;
         }
         number2 = 0;
         multiplier = (int) Math.pow(multiplier, count);
-        //переворачиваем число и собираем его
-        count = 0;
-        while (number >= divider) {
-            if (number % divider != 0) {
-                number = number - (divider / 10);
-                count++;
-            } else {
-                divider = divider * 10;
-                number2 = number2 + (count * multiplier);
-                count = 0;
-                multiplier = multiplier / 10;
-            }
-            if (number / (divider / 10) < 10) {
-                count = number / (divider / 10);
-                number2 = number2 + count;
-            } 
+        //переворачиваем число и собираем его для возможности сравнения
+        while (srcNumber >= 1) {
+            number2 += ((srcNumber % 10) * multiplier);
+            multiplier /= 10;
+            srcNumber /= 10;
         }
         if (number1 == number2) {
             System.out.printf("Число %s является палиндромом %n", number1);
         } else System.out.printf("Число %s не являетcя палиндромом %n", number1);
 
         System.out.println("\n9. Определение, является ли число счастливым");
-        number = 123321;
-        divider = 10;
+        srcNumber = 123321;
         count = 0;
-        int count1 = 0;
-        int summa1 = 0;
-        int summa2 = 0;
+        int sum1 = 0;
+        int sum2 = 0;
 
-        while (number >= divider) {
-            if (number % divider != 0) {
-                number = number - (divider / 10);
-                count++;
-            } else {
-                divider = divider * 10;
-                System.out.print(count);
-                if (count1 < 3) {
-                    summa1 = summa1 + count;
-                    count1++;
-                } else summa2 = summa2 + count;
-                count = 0;
-            }
-            if (number / (divider / 10) < 10) {
-                count = number / (divider / 10);
-                System.out.print(count);
-                summa2 = summa2 + count;
-            } 
+        while (srcNumber >= 1) {
+            if (count < 3) {
+                sum1 += srcNumber % 10;
+            } else sum2 += srcNumber % 10;
+            count++;  
+            srcNumber /= 10;
         }
-        System.out.println("\nCумма цифр abc = "+ summa2);
-        System.out.println("Сумма цифр efg = " + summa1);
-        if (summa1 == summa2) {
+        System.out.println("\nCумма цифр abc = "+ sum2);
+        System.out.println("Сумма цифр efg = " + sum1);
+        if (sum1 == sum2) {
             System.out.println("число является счастливым");
         } else System.out.println("число не является счастливым");
 
