@@ -124,29 +124,19 @@ public class CyclesTheme {
         System.out.println("\n7. Отображение ASCII-символов");
         System.out.printf("%5s %5s %n", "Dec", "Char");
         for (int i = 1; i < 49; i += 2) {
-                System.out.printf("%5s %5c %n", i, i);
+            System.out.printf("%5s %5c %n", i, i);
         }
         for (int i = 98; i < 123; i += 2) {
-                System.out.printf("%5s %5c %n", i, i);
+            System.out.printf("%5s %5c %n", i, i);
         }
 
         System.out.println("\n8. Проверка, является ли число палиндромом");
         srcNumber = 1234321;
         number1 = srcNumber;
-        number2 = srcNumber;
-        int multiplier = 10;
-        count = 0;
-        //определяем разрядность числа
-        while (number2 >= 10) {
-            number2 /= 10;
-            count++;
-        }
         number2 = 0;
-        multiplier = (int) Math.pow(multiplier, count);
-        //переворачиваем число и собираем его для возможности сравнения
+        
         while (srcNumber >= 1) {
-            number2 += ((srcNumber % 10) * multiplier);
-            multiplier /= 10;
+            number2 = number2*10 + (srcNumber % 10);
             srcNumber /= 10;
         }
         if (number1 == number2) {
@@ -155,20 +145,25 @@ public class CyclesTheme {
 
         System.out.println("\n9. Определение, является ли число счастливым");
         srcNumber = 123321;
+        int number = srcNumber;
         count = 0;
+        int numberGfe = 0;
         int sum1 = 0;
         int sum2 = 0;
 
-        while (srcNumber >= 1) {
+        while (number >= 1) {
             if (count < 3) {
-                sum1 += srcNumber % 10;
-            } else sum2 += srcNumber % 10;
+                sum1 += number % 10;
+                numberGfe = numberGfe*10 + (number % 10);
+            } else {
+                sum2 += number % 10;
+            }
             count++;  
-            srcNumber /= 10;
+            number /= 10;
         }
-        System.out.println("\nCумма цифр abc = "+ sum2);
-        System.out.println("Сумма цифр efg = " + sum1);
-        if (sum1 == sum2) {
+        System.out.println("\nCумма цифр " + (srcNumber / 1000) + " = "+ sum2);
+        System.out.println("Сумма цифр " + (srcNumber % 1000) + " = " + sum1);
+        if (srcNumber / 1000 == numberGfe) {
             System.out.println("число является счастливым");
         } else System.out.println("число не является счастливым");
 
