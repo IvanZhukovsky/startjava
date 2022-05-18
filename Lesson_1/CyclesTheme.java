@@ -147,23 +147,21 @@ public class CyclesTheme {
         srcNumber = 123321;
         int number = srcNumber;
         count = 0;
-        int numberGfe = 0;
         int sum1 = 0;
         int sum2 = 0;
 
-        while (number >= 1) {
+        while (srcNumber >= 1) {
             if (count < 3) {
-                sum1 += number % 10;
-                numberGfe = numberGfe*10 + (number % 10);
+                sum1 += srcNumber % 10;
             } else {
-                sum2 += number % 10;
+                sum2 += srcNumber % 10;
             }
             count++;  
-            number /= 10;
+            srcNumber /= 10;
         }
-        System.out.println("\nCумма цифр " + (srcNumber / 1000) + " = "+ sum2);
-        System.out.println("Сумма цифр " + (srcNumber % 1000) + " = " + sum1);
-        if (srcNumber / 1000 == numberGfe) {
+        System.out.println("\nCумма цифр " + (number / 1000) + " = "+ sum2);
+        System.out.println("Сумма цифр " + (number % 1000) + " = " + sum1);
+        if (sum1 == sum2) {
             System.out.println("число является счастливым");
         } else System.out.println("число не является счастливым");
 
