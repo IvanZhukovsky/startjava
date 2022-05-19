@@ -1,25 +1,16 @@
 public class MyFirstGame {
     public static void main(String[] args) {
-        int number = 75;
-        int myNumber = 0;
-        int count = 1;
+        int targetNumber = 75;
+        int playerNumber = 0;
 
-        while (true) {
-            if ((int) (Math.cos((count * 2) - count + 40)*110) <= 100) {
-                myNumber = (int) (Math.cos((count * 2) - count + 40)*110);
-                if (myNumber < 0) myNumber = myNumber*(-1);
-                if (number < myNumber) {
-                    System.out.printf("число %s больше того, что загадал компьютер%n", myNumber);
-                }
-                if (number > myNumber) {
-                    System.out.printf("число %s меньше того, что загадал компьютер%n", myNumber);
-                }
-                if (number == myNumber) {
-                    System.out.println("Вы победидли!");
-                    break;
-                }
+        while (targetNumber != playerNumber) {
+            playerNumber = (int) (Math.random() * 100);
+            if (targetNumber < playerNumber) {
+                System.out.printf("число %s больше того, что загадал компьютер%n", playerNumber);
+            } else if (targetNumber > playerNumber) {
+                System.out.printf("число %s меньше того, что загадал компьютер%n", playerNumber);
             }
-                count++;
         }
+        System.out.println("Вы победили!");
     }
 }
