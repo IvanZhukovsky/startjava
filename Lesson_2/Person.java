@@ -8,7 +8,7 @@ public class Person {
     void go() {
     }
 
-    void seat() {
+    void sit() {
     }
 
     void run() {
