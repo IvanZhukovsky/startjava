@@ -3,7 +3,6 @@ public class Calculator {
     private char sign;
     private int number1;
     private int number2;
-    private int result;
 
     public void setSign(char sign) {
         this.sign = sign;
@@ -28,7 +27,7 @@ public class Calculator {
             case '/':
                 return number1 / number2;
             case '^':
-                result = number1;
+                int result = number1;
                 for (int i = 1; i < number2; i++) {
                     result *= number1;
                 }
@@ -36,6 +35,6 @@ public class Calculator {
             case '%':
                 return number1 % number2;
         }
-        return -1;
+        return 0;
     }
 }
