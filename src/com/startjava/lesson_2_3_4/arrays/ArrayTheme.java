@@ -4,73 +4,61 @@ public class ArrayTheme {
     public static void main(String[] args) {
         System.out.println("1. Реверс значений массива");
         int[] nums = {1, 2, 3, 4, 5, 6, 7};
+        int len = nums.length;
         System.out.println("Исходный массив:");
-        for (int i: nums) {
-            System.out.println(i);
-        }
-        for (int i = 0; i < nums.length / 2; i++) {
+        printArray(nums);
+        for (int i = 0; i < len / 2; i++) {
             int buffer = nums[i];
-            nums[i] = nums[nums.length - i - 1];
-            nums[nums.length - i - 1] = buffer;
+            nums[i] = nums[len - i - 1];
+            nums[len - i - 1] = buffer;
         }
         System.out.println("Перевернутый массив:");
-        for (int i: nums) {
-            System.out.println(i);
-        }
+        printArray(nums);
 
         System.out.println("\n2. Вывод произведения элементов массива");
         nums = new int[10];
-        for (int i = 0; i < nums.length; i++) {
+        len = nums.length;
+        for (int i = 0; i < len; i++) {
             nums[i] = i;
         }
-        int composition = 1;
-        for (int i = 1; i < (nums.length - 1); i++) {
-            nums[i] = i;
-            composition = composition * i;
-            if (i != nums.length - 2) {
+        int produkt = 1;
+        for (int i = 1; i < (len - 1); i++) {
+            produkt *= nums[i];
+            if (i < len - 1) {
                 System.out.print(i + " * ");
             } else System.out.print(i + " = ");
         }
-        System.out.println(composition);
-        for (int i = 0; i < nums.length; i++) {
-            if (nums[i] == 0) {
-                System.out.println("цифра 0 находится в массиве под индексом: " + i);
-            }
-            if (nums[i] == 9) {
-                System.out.println("цифра 9 находится в массиве под индексом: " + i);
-            }
-        }
+        System.out.println(produkt);
+        System.out.println(nums[0]);
+        System.out.println(nums[9]);
 
         System.out.println("\n3. Удаление элементов массива");
-
         float[] nums2 = new float[15];
-        for (int i = 0; i < nums2.length; i++) {
+        len = nums2.length;
+        for (int i = 0; i < len; i++) {
             nums2[i] = (float) Math.random();
         }
-        System.out.println("Исходный массив");
-        for (float num: nums2) {
-            System.out.println(num + " ");
-        }
+        System.out.println("Исходный массив" + nums2[len/2]);
+        printArray(nums2);
         int count = 0;
-        for (int i = 0; i < nums2.length; i++) {
-            if (nums2[i] > nums2[7]) {
+        for (int i = 0; i < len; i++) {
+            if (nums2[i] > nums2[len/2]) {
                 count++;
                 nums2[i] = 0;
             }
         }
         System.out.println("Измененный массив");
-        for (float num: nums2) {
-            System.out.println(num + " ");
-        }
+        printArray(nums2);
         System.out.println("количество обнуленных ячеек " + count);
 
         System.out.println("\n4. Вывод элементов массива лесенкой в обратном порядке");
         char[] letters = new char[26];
+        len = letters.length;
         for (int i = 65; i < 91; i++) {
             letters[i - 65] = (char) i;
         }
-        for (int i = letters.length - 1; i >=0; i--) {
-            for (int j = letters.length - 1; j >= i; j--) {
+        for (int i = len - 1; i >= 0; i--) {
+            for (int j = len - 1; j >= i; j--) {
                 System.out.print(letters[j]);
             }
             System.out.println();
@@ -78,37 +66,52 @@ public class ArrayTheme {
 
         System.out.println("\n5. Работа с max и min числами");
         nums = new int[30];
+        len = nums.length;
         int randomNumber;
-        boolean flag;
-        for (int i = 0; i < nums.length; i++) {
+        boolean newNum;
+        for (int i = 0; i < len; i++) {
             do {
                 randomNumber = (int) ((Math.random() * 41) + 60);
-                flag = false;
-                for (int number: nums) {
-                    if (number == randomNumber) {
-                        flag = true;
+                newNum = true;
+                for (int num : nums) {
+                    if (num == randomNumber) {
+                        newNum = false;
                     }
                 }
-            } while (flag);
+            } while (!newNum);
             nums[i] = randomNumber;
-            System.out.print(nums[i] + " ");
-            if (i == 9 || i == 19) {
-                System.out.println();
-            }
+            System.out.print((i + 1) % 10 == 0 ? nums[i] + "\n": nums[i] + " ");
         }
 
         System.out.println("\n\n6. Сдвиг элементов массива");
-        String[] sourceArray = {"", "AA", "", "", "BBB", "C", "", "DDDD"};
-        String[] destArray = new String[sourceArray.length];
-        System.arraycopy(sourceArray, 0, destArray, 0, sourceArray.length);
+        String[] strings1 = {"", "AA", "", "", "BBB", "C", "", "DDDD"};
+        String[] strings2 = new String[strings1.length];
 
         System.out.println("Исходный массив");
-        for (String string: sourceArray) {
-            System.out.print(string + " ");
+        printArray(strings1);
+        System.arraycopy(strings1, 1, strings2, 0, 1);
+        System.arraycopy(strings1, 4, strings2, 1, 2);
+        System.arraycopy(strings1, 7, strings2, 3, 1);
+        System.out.println("\nИзмененный массив");
+        printArray(strings2);
+    }
+
+    private static void printArray(int[] nums) {
+        for (int num : nums) {
+            System.out.println(num);
         }
-        System.out.println("\nКопия исходного массива");
-        for (String string: destArray) {
+    }
+
+    private static void printArray(float[] nums) {
+        for (float num : nums) {
+            System.out.println(num);
+        }
+    }
+
+    private static void printArray(String[] strings) {
+        for (String string : strings) {
             System.out.print(string + " ");
         }
     }
+
 }
