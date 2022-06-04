@@ -24,7 +24,7 @@ public class ArrayTheme {
         int product = 1;
         for (int i = 1; i < (len - 1); i++) {
             product *= nums[i];
-            System.out.print(i < len - 2 ? i + " * ": i + " = ");
+            System.out.print(i < len - 2 ? i + " * " : i + " = ");
         }
         System.out.println(product);
         System.out.println("элемент " + nums[0] + " находится под индексом 0");
@@ -78,24 +78,40 @@ public class ArrayTheme {
                 }
             } while (!newNum);
             nums[i] = randomNumber;
-            System.out.print((i + 1) % 10 == 0 ? nums[i] + "\n": nums[i] + " ");
+            System.out.print((i + 1) % 10 == 0 ? nums[i] + "\n" : nums[i] + " ");
         }
 
         System.out.println("\n\n6. Сдвиг элементов массива");
-        String[] strings1 = {"", "AA", "", "", "BBB", "C", "", "DDDD"};
-        String[] strings2 = new String[strings1.length];
+        String[] srcStrings = {"", "AA", "", "", "BBB", "C", "", "DDDD"};
+        len = srcStrings.length;
+        String[] destStrings = new String[len];
 
         System.out.println("Исходный массив");
-        printArray(strings1);
-        count = 0;
-        for (int i = 0; i < strings1.length; i++) {
-            if (!strings1[i].equals("")) {
-                System.arraycopy(strings1, i, strings2, count, 1);
-                count++;
+        printArray(srcStrings);
+
+        int count1;
+        int count2 = 0;
+
+        for (int i = 0; i < len; i++) {
+            if (!srcStrings[i].equals("")) {
+                count1 = 1;
+                for (int j = i + 1; j < len; j++) {
+                    if (!srcStrings[j].equals("")) {
+                        count1++;
+                    } else {
+                        i = i + count1 - 1;
+                        count2 = count2 + count1;
+                        break;
+                    }
+                }
+                if (i == len - 1 && !srcStrings[len - 1].equals("")) {
+                    System.arraycopy(srcStrings, i, destStrings, count2, count1);
+                } else
+                System.arraycopy(srcStrings, i - count1 + 1, destStrings, count2 - count1, count1);
             }
         }
         System.out.println("\nИзмененный массив");
-        printArray(strings2);
+        printArray(destStrings);
     }
 
     private static void printArray(int[] nums) {
