@@ -98,16 +98,15 @@ public class ArrayTheme {
                 for (int j = i + 1; j < len; j++) {
                     if (!srcStrings[j].equals("")) {
                         count1++;
-                    } else {
-                        i = i + count1 - 1;
-                        count2 = count2 + count1;
-                        break;
-                    }
+                    } else break;
                 }
                 if (i == len - 1 && !srcStrings[len - 1].equals("")) {
                     System.arraycopy(srcStrings, i, destStrings, count2, count1);
-                } else
-                System.arraycopy(srcStrings, i - count1 + 1, destStrings, count2 - count1, count1);
+                } else {
+                    System.arraycopy(srcStrings, i, destStrings, count2, count1);
+                    i = i + count1 - 1;
+                    count2 = count2 + count1;
+                }
             }
         }
         System.out.println("\nИзмененный массив");
