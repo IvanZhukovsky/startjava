@@ -21,16 +21,14 @@ public class ArrayTheme {
         for (int i = 0; i < len; i++) {
             nums[i] = i;
         }
-        int produkt = 1;
+        int product = 1;
         for (int i = 1; i < (len - 1); i++) {
-            produkt *= nums[i];
-            if (i < len - 1) {
-                System.out.print(i + " * ");
-            } else System.out.print(i + " = ");
+            product *= nums[i];
+            System.out.print(i < len - 2 ? i + " * ": i + " = ");
         }
-        System.out.println(produkt);
-        System.out.println(nums[0]);
-        System.out.println(nums[9]);
+        System.out.println(product);
+        System.out.println("элемент " + nums[0] + " находится под индексом 0");
+        System.out.println("элемент " + nums[9] + " находится под индексом 9");
 
         System.out.println("\n3. Удаление элементов массива");
         float[] nums2 = new float[15];
@@ -38,11 +36,11 @@ public class ArrayTheme {
         for (int i = 0; i < len; i++) {
             nums2[i] = (float) Math.random();
         }
-        System.out.println("Исходный массив" + nums2[len/2]);
+        System.out.println("Исходный массив" + nums2[len / 2]);
         printArray(nums2);
         int count = 0;
         for (int i = 0; i < len; i++) {
-            if (nums2[i] > nums2[len/2]) {
+            if (nums2[i] > nums2[len / 2]) {
                 count++;
                 nums2[i] = 0;
             }
@@ -89,9 +87,13 @@ public class ArrayTheme {
 
         System.out.println("Исходный массив");
         printArray(strings1);
-        System.arraycopy(strings1, 1, strings2, 0, 1);
-        System.arraycopy(strings1, 4, strings2, 1, 2);
-        System.arraycopy(strings1, 7, strings2, 3, 1);
+        count = 0;
+        for (int i = 0; i < strings1.length; i++) {
+            if (!strings1[i].equals("")) {
+                System.arraycopy(strings1, i, strings2, count, 1);
+                count++;
+            }
+        }
         System.out.println("\nИзмененный массив");
         printArray(strings2);
     }
