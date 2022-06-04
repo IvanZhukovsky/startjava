@@ -36,7 +36,7 @@ public class ArrayTheme {
         for (int i = 0; i < len; i++) {
             nums2[i] = (float) Math.random();
         }
-        System.out.println("Исходный массив" + nums2[len / 2]);
+        System.out.println("Исходный массив");
         printArray(nums2);
         int count = 0;
         for (int i = 0; i < len; i++) {
