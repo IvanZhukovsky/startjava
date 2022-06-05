@@ -84,23 +84,28 @@ public class ArrayTheme {
         System.out.println("\n\n6. Сдвиг элементов массива");
         String[] srcStrings = {"", "AA", "", "", "BBB", "C", "", "DDDD"};
         len = srcStrings.length;
-        String[] destStrings = new String[len];
+        String[] destStrings = new String[0];
+        String[] bufffer;
 
         System.out.println("Исходный массив");
         printArray(srcStrings);
         int count1;
         int count2 = 0;
         for (int i = 0; i < len; i++) {
-            if (!srcStrings[i].equals("")) {
+            if (!srcStrings[i].isBlank()) {
                 count1 = 1;
                 for (int j = i + 1; j < len; j++) {
-                    if (!srcStrings[j].equals("")) {
+                    if (!srcStrings[j].isBlank()) {
                         count1++;
                     } else break;
                 }
+                bufffer = new String[destStrings.length + count1];
+                System.arraycopy(destStrings, 0, bufffer, 0, destStrings.length);
+                destStrings = new String[bufffer.length];
+                System.arraycopy(bufffer, 0, destStrings, 0, bufffer.length);
                 System.arraycopy(srcStrings, i, destStrings, count2, count1);
-                i = i + count1 - 1;
-                count2 = count2 + count1;
+                i += count1 - 1;
+                count2 += count1;
             }
         }
         System.out.println("\nИзмененный массив");
