@@ -3,18 +3,14 @@ package com.startjava.lesson_2_3_4.calculator;
 import java.util.Scanner;
 
 public class CalculatorTest {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+    public static void main(String[] args) throws InterruptedException {
         Calculator calculator = new Calculator();
         String option;
 
         do {
-            System.out.print("Введите первое число: ");
-            calculator.setNumber1(scanner.nextInt());
-            System.out.print("Введите знак математической операции: ");
-            calculator.setSign(scanner.next().charAt(0));
-            System.out.print("Введите второе число: ");
-            calculator.setNumber2(scanner.nextInt());
+            System.out.println("Введите математическое выражение в формате a знак операции b: ");
+            Scanner scanner = new Scanner(System.in);
+            calculator.setExpression(scanner.nextLine());
             System.out.println(calculator.calculate());
             do {
                 System.out.print("Хотите продолжить вычисления? [yes/no]: ");
