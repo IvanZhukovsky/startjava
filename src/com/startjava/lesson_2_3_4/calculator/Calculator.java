@@ -5,14 +5,32 @@ public class Calculator {
     private char sign;
     private int number1;
     private int number2;
-    private String expression;
 
-    public void setExpression(String expression) {
-        this.expression = expression;
+    public char getSign() {
+        return sign;
+    }
+
+    public void setSign(char sign) {
+        this.sign = sign;
+    }
+
+    public int getNumber1() {
+        return number1;
+    }
+
+    public void setNumber1(int number1) {
+        this.number1 = number1;
+    }
+
+    public int getNumber2() {
+        return number2;
+    }
+
+    public void setNumber2(int number2) {
+        this.number2 = number2;
     }
 
     public int calculate() {
-        setNumbers(expression);
         switch (sign) {
             case '+':
                 return number1 + number2;
@@ -28,12 +46,5 @@ public class Calculator {
                 return number1 % number2;
         }
         return 0;
-    }
-
-    private void setNumbers(String expression) {
-        String[] elements = expression.split(" ");
-        number1 = Integer.parseInt(elements[0]);
-        number2 = Integer.parseInt(elements[2]);
-        sign = elements[1].charAt(0);
     }
 }

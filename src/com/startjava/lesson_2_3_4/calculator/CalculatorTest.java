@@ -10,7 +10,10 @@ public class CalculatorTest {
         do {
             System.out.println("Введите математическое выражение в формате a знак операции b: ");
             Scanner scanner = new Scanner(System.in);
-            calculator.setExpression(scanner.nextLine());
+            String[] elements = scanner.nextLine().split(" ");
+            calculator.setNumber1(Integer.parseInt(elements[0]));
+            calculator.setNumber2(Integer.parseInt(elements[2]));
+            calculator.setSign(elements[1].charAt(0));
             System.out.println(calculator.calculate());
             do {
                 System.out.print("Хотите продолжить вычисления? [yes/no]: ");
