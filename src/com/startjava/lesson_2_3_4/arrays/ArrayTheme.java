@@ -101,10 +101,8 @@ public class ArrayTheme {
                     } else break;
                 }
                 System.arraycopy(srcStrings, i, destStrings, count2, count1);
-                if (i != len - 1) {
-                    i = i + count1 - 1;
-                    count2 = count2 + count1;
-                }
+                i = i + count1 - 1;
+                count2 = count2 + count1;
             }
         }
         System.out.println("\nИзмененный массив");
