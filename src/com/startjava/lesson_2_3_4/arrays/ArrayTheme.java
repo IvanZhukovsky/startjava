@@ -88,10 +88,8 @@ public class ArrayTheme {
 
         System.out.println("Исходный массив");
         printArray(srcStrings);
-
         int count1;
         int count2 = 0;
-
         for (int i = 0; i < len; i++) {
             if (!srcStrings[i].equals("")) {
                 count1 = 1;
