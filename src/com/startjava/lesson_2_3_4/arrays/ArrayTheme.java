@@ -100,10 +100,8 @@ public class ArrayTheme {
                         count1++;
                     } else break;
                 }
-                if (i == len - 1 && !srcStrings[len - 1].equals("")) {
-                    System.arraycopy(srcStrings, i, destStrings, count2, count1);
-                } else {
-                    System.arraycopy(srcStrings, i, destStrings, count2, count1);
+                System.arraycopy(srcStrings, i, destStrings, count2, count1);
+                if (i != len - 1) {
                     i = i + count1 - 1;
                     count2 = count2 + count1;
                 }
