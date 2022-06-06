@@ -1,50 +1,43 @@
 package com.startjava.lesson_2_3_4.calculator;
 
+import java.util.Scanner;
+
 public class Calculator {
-    
-    private char sign;
-    private int number1;
-    private int number2;
-
-    public char getSign() {
-        return sign;
-    }
-
-    public void setSign(char sign) {
-        this.sign = sign;
-    }
-
-    public int getNumber1() {
-        return number1;
-    }
-
-    public void setNumber1(int number1) {
-        this.number1 = number1;
-    }
-
-    public int getNumber2() {
-        return number2;
-    }
-
-    public void setNumber2(int number2) {
-        this.number2 = number2;
-    }
-
-    public int calculate() {
-        switch (sign) {
-            case '+':
-                return number1 + number2;
-            case '-':
-                return number1 - number2;
-            case '*':
-                return number1 * number2;
-            case '/':
-                return number1 / number2;
-            case '^':
-                return (int) Math.pow(number1, number2);
-            case '%':
-                return number1 % number2;
+    public static int calculate(String expression) {
+        char sign = '*';
+        double number1;
+        double number2;
+        Scanner scanner = new Scanner(System.in);
+         while (true) {
+            String[] elements = expression.split(" ");
+            try {
+                number1 = Double.parseDouble(elements[0]);
+                number2 = Double.parseDouble(elements[2]);
+                sign = elements[1].charAt(0);
+            } catch (NumberFormatException e) {
+                System.out.println("некорректный ввод, если хотите начните заново");
+                number1 = 0;
+                number2 = 0;
+            }
+            if (number1 < 0 || number2 < 0 || number1 % 1 != 0 || number2 % 1 != 0) {
+                System.out.println("Некорректный ввод, введите целое положительное число");
+                expression = scanner.nextLine();
+            } else break;
         }
-        return 0;
+        double result = 0;
+        try {
+            result = switch (sign) {
+                case '+' -> number1 + number2;
+                case '-' -> number1 - number2;
+                case '*' -> number1 * number2;
+                case '/' -> number1 / number2;
+                case '^' -> (int) Math.pow(number1, number2);
+                case '%' -> number1 % number2;
+                default -> throw new IllegalStateException("Unexpected value: " + sign);
+            };
+        } catch (IllegalStateException e) {
+            System.out.println("некорректный ввод, если хотите начните заново");
+        }
+        return (int) result;
     }
 }
