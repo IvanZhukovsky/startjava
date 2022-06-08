@@ -6,19 +6,19 @@ public class Calculator {
         double number1;
         double number2;
 
-            String[] elements = expression.split(" ");
-            try {
-                number1 = Double.parseDouble(elements[0]);
-                number2 = Double.parseDouble(elements[2]);
-                sign = elements[1].charAt(0);
-            } catch (NumberFormatException e) {
-                System.out.println("некорректный ввод, если хотите начните заново");
-                return 0;
-            }
-            if (number1 < 0 || number2 < 0 || number1 % 1 != 0 || number2 % 1 != 0) {
-                System.out.println("Некорректный ввод, введите целое положительное число");
-                return 0;
-            }
+        String[] elements = expression.split(" ");
+        try {
+            number1 = Double.parseDouble(elements[0]);
+            number2 = Double.parseDouble(elements[2]);
+            sign = elements[1].charAt(0);
+        } catch (NumberFormatException e) {
+            System.out.println("некорректный ввод, если хотите начните заново");
+            return 0;
+        }
+        if (number1 < 0 || number2 < 0 || number1 % 1 != 0 || number2 % 1 != 0) {
+            System.out.println("Некорректный ввод, введите целое положительное число");
+            return 0;
+        }
 
         double result = 0;
         try {
