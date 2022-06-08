@@ -8,7 +8,7 @@ public class Calculator {
         double number1;
         double number2;
         Scanner scanner = new Scanner(System.in);
-         while (true) {
+
             String[] elements = expression.split(" ");
             try {
                 number1 = Double.parseDouble(elements[0]);
@@ -16,14 +16,15 @@ public class Calculator {
                 sign = elements[1].charAt(0);
             } catch (NumberFormatException e) {
                 System.out.println("некорректный ввод, если хотите начните заново");
-                number1 = 0;
-                number2 = 0;
+                return 0;
+                //number1 = 0;
+                //number2 = 0;
             }
             if (number1 < 0 || number2 < 0 || number1 % 1 != 0 || number2 % 1 != 0) {
                 System.out.println("Некорректный ввод, введите целое положительное число");
-                expression = scanner.nextLine();
-            } else break;
-        }
+                return 0;
+            }
+
         double result = 0;
         try {
             result = switch (sign) {
@@ -37,6 +38,7 @@ public class Calculator {
             };
         } catch (IllegalStateException e) {
             System.out.println("некорректный ввод, если хотите начните заново");
+            return 0;
         }
         return (int) result;
     }
