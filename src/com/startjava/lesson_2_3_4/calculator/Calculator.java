@@ -17,8 +17,6 @@ public class Calculator {
             } catch (NumberFormatException e) {
                 System.out.println("некорректный ввод, если хотите начните заново");
                 return 0;
-                //number1 = 0;
-                //number2 = 0;
             }
             if (number1 < 0 || number2 < 0 || number1 % 1 != 0 || number2 % 1 != 0) {
                 System.out.println("Некорректный ввод, введите целое положительное число");
