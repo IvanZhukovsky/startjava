@@ -33,7 +33,6 @@ public class Calculator {
             };
         } catch (IllegalStateException e) {
             System.out.println("некорректный ввод, если хотите начните заново");
-            return 0;
         }
         return (int) result;
     }
