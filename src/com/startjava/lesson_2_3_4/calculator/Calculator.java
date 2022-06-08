@@ -1,13 +1,10 @@
 package com.startjava.lesson_2_3_4.calculator;
 
-import java.util.Scanner;
-
 public class Calculator {
     public static int calculate(String expression) {
-        char sign = '*';
+        char sign;
         double number1;
         double number2;
-        Scanner scanner = new Scanner(System.in);
 
             String[] elements = expression.split(" ");
             try {
