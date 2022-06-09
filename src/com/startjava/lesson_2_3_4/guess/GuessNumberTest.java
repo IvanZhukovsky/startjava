@@ -13,10 +13,8 @@ public class GuessNumberTest {
         GuessNumber game = new GuessNumber(player1, player2);
         do {
             game.start();
-            player1.fillArray();
-            player1.setCount(0);
-            player2.fillArray();
-            player2.setCount(0);
+            player1.eraseFields();
+            player2.eraseFields();
             do {
                 System.out.print("Хотите продолжить игру? [yes/no]:");
                 option = scanner.next();
