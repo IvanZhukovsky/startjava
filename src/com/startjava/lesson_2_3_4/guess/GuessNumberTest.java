@@ -14,7 +14,9 @@ public class GuessNumberTest {
         do {
             game.start();
             player1.fillArray();
+            player1.setCount(0);
             player2.fillArray();
+            player2.setCount(0);
             do {
                 System.out.print("Хотите продолжить игру? [yes/no]:");
                 option = scanner.next();
