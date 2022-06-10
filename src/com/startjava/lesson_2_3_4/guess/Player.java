@@ -25,6 +25,7 @@ public class Player {
 
     public void addNumber(int number) {
         numbers[count] = number;
+        count++;
     }
 
     public int getCount() {
@@ -37,6 +38,6 @@ public class Player {
 
     public void clear() {
         Arrays.fill(numbers, 0, count, 0);
-        setCount(0);
+        count = 0;
     }
 }
