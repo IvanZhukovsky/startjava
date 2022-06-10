@@ -36,7 +36,7 @@ public class Player {
     }
 
     public void clear() {
-        Arrays.fill(numbers, 0, count - 1, 0);
+        Arrays.fill(numbers, 0, count, 0);
         setCount(0);
     }
 }
