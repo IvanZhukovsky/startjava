@@ -16,19 +16,21 @@ public class GuessNumber {
     public void start() {
         Scanner scanner = new Scanner(System.in);
         targetNumber = (int) (Math.random() * 100) + 1;
+        player1.clear();
+        player2.clear();
         System.out.println("Внимание, у каждого игрока есть только 10 попыток!");
 
         for (int i = 0; i < 10; i++) {
             System.out.print(player1.getName() + " назовите число:");
-            player1.setNumber(i, scanner.nextInt());
+            player1.addNumber(scanner.nextInt());
             player1.setCount(i + 1);
-            if (checkNum(player1, i)) {
+            if (compareNumbers(player1, i)) {
                 break;
             }
             System.out.print(player2.getName() + " назовите число:");
-            player2.setNumber(i, scanner.nextInt());
+            player2.addNumber(scanner.nextInt());
             player2.setCount(i + 1);
-            if (checkNum(player2, i)) {
+            if (compareNumbers(player2, i)) {
                 break;
             }
         }
@@ -36,11 +38,11 @@ public class GuessNumber {
         showEnteredNumbers(player2);
     }
 
-    private boolean checkNum(Player player, int currentIndex) {
-        if (player.getNumber(currentIndex) > targetNumber) {
-            System.out.printf("число %s больше того, что загадал компьютер%n", player.getNumber(currentIndex));
-        } else if (player.getNumber(currentIndex) < targetNumber) {
-            System.out.printf("число %s меньше того, что загадал компьютер%n", player.getNumber(currentIndex));
+    private boolean compareNumbers(Player player, int currentIndex) {
+        if (player.getNumber() > targetNumber) {
+            System.out.printf("число %s больше того, что загадал компьютер%n", player.getNumber());
+        } else if (player.getNumber() < targetNumber) {
+            System.out.printf("число %s меньше того, что загадал компьютер%n", player.getNumber());
         } else {
             System.out.println("Игрок " + player.getName() + " угадал число " + targetNumber +
                     " с " + (currentIndex + 1) + " попытки!");
@@ -54,8 +56,7 @@ public class GuessNumber {
 
     private void showEnteredNumbers(Player player) {
         System.out.println("Игрок " + player.getName() + " называл следующие числа:");
-        int enteredNumbers[] = Arrays.copyOf(player.getNumbers(), player.getCount());
-        for (int number : enteredNumbers) {
+        for (int number : player.getNumbers()) {
             System.out.print(number + " ");
         }
         System.out.println();
