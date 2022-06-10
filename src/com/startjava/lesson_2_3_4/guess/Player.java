@@ -6,6 +6,7 @@ public class Player {
     private String name;
     private int[] numbers = new int[10];
     private int count;
+    private int victories;
 
     public Player(String name) {
         this.name = name;
@@ -24,16 +25,24 @@ public class Player {
     }
 
     public void addNumber(int number) {
-        numbers[count] = number;
-        count++;
+        if (number > 0 && number <= 100) {
+            this.numbers[count] = number;
+            count++;
+        } else {
+            System.out.println("Введенное число должно быть в диапазоне (0 , 100], ход переходит к другому игроку");
+        }
     }
 
     public int getCount() {
         return count;
     }
 
-    public void setCount(int count) {
-        this.count = count;
+    public int getVictories() {
+        return victories;
+    }
+
+    public void addVictory() {
+        this.victories++;
     }
 
     public void clear() {
