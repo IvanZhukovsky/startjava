@@ -3,10 +3,11 @@ package com.startjava.lesson_2_3_4.guess;
 import java.util.Scanner;
 
 public class GuessNumberTest {
+    static Scanner scanner = new Scanner(System.in);
     public static void main(String[] args) {
         System.out.println("Начинаем, победитель будет установлен по результатам трех игр!");
         String option;
-        Scanner scanner = new Scanner(System.in);
+
         Player[] players = createPlayers();
         GuessNumber game;
         do {
@@ -20,7 +21,6 @@ public class GuessNumberTest {
     }
 
     public static Player[] createPlayers() {
-        Scanner scanner = new Scanner(System.in);
         Player[] players = new Player[3];
         for (int i = 0; i < players.length; i++) {
             System.out.print("Введите имя " + (i + 1) + "-го игрока:");

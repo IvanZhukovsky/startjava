@@ -5,41 +5,24 @@ import java.util.Scanner;
 public class GuessNumber {
     private Player[] players;
     private int targetNumber;
+    private Scanner scanner = new Scanner(System.in);
 
     public GuessNumber(Player[] players) {
         this.players = players;
     }
 
     public void start() {
-        Scanner scanner = new Scanner(System.in);
-
         for (int round = 1; round < 4; round++) {
             System.out.println(round + " игра");
             initGame();
             //Бросаем жребий при помощи двух кубиков и определяем очередность хода игроков
-            bubbleSort(players, castLots(players));
+            castLots();
             //Проводим один раунд игры
-            System.out.println("Внимание, у каждого игрока есть только 10 попыток!");
-            for (int i = 0; i < 10; i++) {
-                for (int j = 0; j < players.length; j++) {
-                    System.out.print(players[j].getName() + " назовите число:");
-
-                    if (players[j].addNumber(scanner.nextInt())) {
-                        if (players[j].getNumber() != 0) {
-                            if (compareNumbers(players[j])) {
-                                i = 10;
-                                break;
-                            }
-                        }
-                    } else {
-                        System.out.println("Введенное число должно быть в диапазоне (0 , 100], ход переходит к другому игроку");
-                    }
-                }
-            }
+            playRound();
             //Выводим результаты
             showEnteredNumbers(players);
         }
-        determineTheWinner();
+        determineWinner();
     }
 
     private void initGame() {
@@ -56,15 +39,13 @@ public class GuessNumber {
         int currentIndex = player.getCount() - 1;
 
         if (targetNumber == number) {
-            System.out.println("Игрок " + player.getName() + " угадал число " + targetNumber +
-                    " с " + (currentIndex + 1) + " попытки!");
+            System.out.printf("Игрок %s угадал число %s c %s попытки! %n",
+                    player.getName(), targetNumber, (currentIndex + 1));
             player.addVictory();
             return true;
-        } else {
-            System.out.println("число " + number +
-                    (targetNumber < number ? " больше" : " меньше") +
-                    " того, что загадал компьютер");
         }
+        System.out.println("число " + number + (targetNumber < number ? " больше" : " меньше")
+                + " того, что загадал компьютер");
         if (currentIndex == 9) {
             System.out.println("У игрока " + number + " закончились попытки!");
         }
@@ -84,7 +65,7 @@ public class GuessNumber {
     //В методе массив с результатами броска кубиков сортируется по убыванию, зеркально с ним
     //сортируются игроки, после работы метода массив players будет содержать игроков расположенных
     //в нем в порядке очередности игры
-    private void bubbleSort(Player[] players, int[] lotResults) {
+    private void sortPlayers(Player[] players, int[] lotResults) {
         int len = lotResults.length;
         for (int i = len - 1; i >= 1; i--) {
             for (int j = 0; j < i; j++) {
@@ -92,36 +73,55 @@ public class GuessNumber {
                     toSwap(j, j + 1, lotResults, players);
             }
         }
-        for (int i : lotResults) {
-            System.out.println(i);
-        }
         System.out.println("Очередность игроков следующая");
         for (Player player : players) {
             System.out.println(player.getName());
         }
     }
+
     //Метод отвечает за имитацию броска кубиков игроками и выдает результаты бросков в виде баллов от 2 до 12
-    private static int[] castLots(Player[] players) {
+    private void castLots() {
         int len = players.length;
         int[] lotResults = new int[len];
-        int count;
+        int[] results = new int[11];
+        int resLen = results.length;
+        for (int i = 0; i < resLen; i++) {
+            results[i] = i + 2;
+        }
+        int buffer = 0;
+        int count1 = 0;
         for (int i = 0; i < len; i++) {
-            System.out.println("Жребий бросает " + players[i].getName());
-            //Бросаем кубики до получения уникального результата (чтобы не было ничьи)
-            do {
-                lotResults[i] = (int) (Math.random() * 11) + 2;
-                count = 0;
-                for (int number : lotResults) {
-                    if (lotResults[i] == number) {
-                        count++;
-                    }
-                }
-            } while (count != 1);
+            count1 = (int) (Math.random() * resLen - i);
+            lotResults[i] = results[count1];
+            buffer = results[resLen - 1 - i];
+            results[resLen - 1 - i] = results[count1];
+            results[count1] = buffer;
             System.out.println("Выпало " + lotResults[i]);
         }
         //На выходе получаем массив с результатами жребия
-        return lotResults;
+        sortPlayers(players, lotResults);
     }
+
+    private void playRound() {
+        //Проводим один раунд игры
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < players.length; j++) {
+                System.out.print(players[j].getName() + " назовите число:");
+
+                if (players[j].addNumber(scanner.nextInt())) {
+                    if (players[j].getNumber() != 0) {
+                        if (compareNumbers(players[j])) {
+                            i = 10;
+                            break;
+                        }
+                    }
+                } else {
+                    System.out.println("Введенное число должно быть в диапазоне (0 , 100], ход переходит к другому игроку");
+                }
+            }
+        }
+    }
+
 
     //Вспомогательный метод, меняет местами ячейки массива для его сортировки
     private void toSwap(int first, int second, int[] lotResults, Player[] players) {
@@ -134,14 +134,14 @@ public class GuessNumber {
     }
 
     //Метод для выявления победителя
-    private void determineTheWinner() {
+    private void determineWinner() {
         //Проверяем на ничью
         int victoryIndex = 0;
         if (players[0].getVictories() == players[1].getVictories()
                 && players[1].getVictories() == players[2].getVictories()) {
             System.out.println("По результатам трех игр ничья!");
         } else {
-            //Определеяем победителя
+            //Определяем победителя
             int maxNumber = players[0].getVictories();
 
             for (int i = 0; i < players.length; i++) {
