@@ -24,13 +24,13 @@ public class Player {
         return numbers[count - 1];
     }
 
-    public void addNumber(int number) {
+    public boolean addNumber(int number) {
         if (number > 0 && number <= 100) {
-            this.numbers[count] = number;
+            numbers[count] = number;
             count++;
-        } else {
-            System.out.println("Введенное число должно быть в диапазоне (0 , 100], ход переходит к другому игроку");
+            return true;
         }
+        return false;
     }
 
     public int getCount() {
@@ -42,7 +42,7 @@ public class Player {
     }
 
     public void addVictory() {
-        this.victories++;
+        victories++;
     }
 
     public void clear() {
