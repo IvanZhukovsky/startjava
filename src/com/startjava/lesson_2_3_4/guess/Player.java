@@ -25,9 +25,9 @@ public class Player {
     }
 
     public boolean addNumber(int number) {
+        numbers[count] = number;
+        count++;
         if (number > 0 && number <= 100) {
-            numbers[count] = number;
-            count++;
             return true;
         }
         return false;
