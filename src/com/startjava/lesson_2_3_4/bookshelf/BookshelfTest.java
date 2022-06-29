@@ -4,17 +4,16 @@ import java.util.Scanner;
 
 public class BookshelfTest {
     public static void main(String[] args) {
-
         Bookshelf bookshelf = new Bookshelf();
         Scanner scanner = new Scanner(System.in);
         String answer;
-        String answerElem[];
+        String[] answerElem;
 
         do {
-            showUI(bookshelf);
+            showUi(bookshelf);
             System.out.println("\nВведите команду -> ");
             answer = scanner.nextLine();
-            answerElem = mySplit(answer);
+            answerElem = splitAnswer(answer);
 
             switch (answerElem[0]) {
                 case ("add"):
@@ -33,13 +32,14 @@ public class BookshelfTest {
                     break;
                 case ("find"):
                     if (answerElem.length == 2) {
-                        System.out.println(bookshelf.find(answerElem[1]));
+                        Book book = bookshelf.find(answerElem[1]);
+                        System.out.println(book.getAuthor() + " " + book.getTitle() + " " + book.getPublishYear());
                     } else {
                         System.out.println("Книга не найдена, неверный ввод данных");
                     }
                     break;
                 case ("how many books"):
-                    System.out.println("На книжной полке книг - " + bookshelf.getQuantity() + " шт");
+                    System.out.println("На книжной полке книг - " + bookshelf.getSize() + " шт");
                     break;
                 case ("how much space"):
                     System.out.println("На книжной полке свободных мест " + bookshelf.getFreeSpace());
@@ -48,7 +48,7 @@ public class BookshelfTest {
         } while (!answer.equals("quit"));
     }
 
-    public static void showUI(Bookshelf bookshelf) {
+    private static void showUi(Bookshelf bookshelf) {
         System.out.printf("%-9s %-1s %9s %n", "<", "---------- МЕНЮ ----------", ">");
         System.out.printf("%-2s %-41s %s %n", "<", "1. add <author> <title> <publishYear>", ">");
         System.out.printf("%-2s %-41s %s %n", "<", "2. delete <title>", ">");
@@ -66,7 +66,7 @@ public class BookshelfTest {
         }
     }
 
-    public static String[] mySplit(String answer) {
+    private static String[] splitAnswer(String answer) {
         String answerElem[] = answer.split(" <");
         for (int i = 1; i < answerElem.length; i++) {
             answerElem[i] = answerElem[i].substring(0, answerElem[i].length() - 1);
