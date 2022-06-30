@@ -62,7 +62,7 @@ public class BookshelfTest {
             if (book != null) {
                 System.out.printf("%-2s %-12s %-22s %-3s %2s %n", "<", book.getAuthor(),
                         book.getTitle(), book.getPublishYear(), ">");
-            } else System.out.printf("%-4s %-1s %4s %n", "<", "----------книга отсуствует----------", ">");
+            } else System.out.printf("%-4s %-1s %4s %n", "<", "----------книга отсутствует----------", ">");
         }
     }
 
