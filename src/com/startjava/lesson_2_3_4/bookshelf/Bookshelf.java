@@ -26,9 +26,9 @@ public class Bookshelf {
     }
 
     public void delete(String title) {
-        int index = getIndex(title);
+        int index = findIndex(title);
         if (index != -1) {
-            books[index] = null;
+            //books[index] = null;
             size--;
             System.arraycopy(books, index + 1, books, index, size - index);
             books[size] = null;
@@ -39,13 +39,14 @@ public class Bookshelf {
     }
 
     public Book find(String title) {
-        if (getIndex(title) != -1) {
-            return books[getIndex(title)];
+        int index = findIndex(title);
+        if (index != -1) {
+            return books[index];
         }
         return null;
     }
 
-    public int getIndex(String title) {
+    private int findIndex(String title) {
         for (int i = 0; i < size; i++) {
             if (books[i].getTitle().equals(title)) {
                 return i;

@@ -67,7 +67,7 @@ public class BookshelfTest {
     }
 
     private static String[] splitAnswer(String answer) {
-        String answerElem[] = answer.split(" <");
+        String[] answerElem = answer.split(" <");
         for (int i = 1; i < answerElem.length; i++) {
             answerElem[i] = answerElem[i].substring(0, answerElem[i].length() - 1);
         }
